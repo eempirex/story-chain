@@ -12,7 +12,17 @@ bash_profile=$HOME/.bash_profile
 if [ -f "$bash_profile" ]; then
     source $HOME/.bash_profile
 fi
-sleep 1 && curl -s https://raw.githubusercontent.com/eempirex/story-chain/refs/heads/main/logo.sh | bash && sleep 1
+
+if ! command -v figlet &> /dev/null; then
+    echo "Installing Figlet ..."
+    sudo apt-get update && sudo apt-get install -y figlet
+fi
+sleep 1 
+echo -e '\e[40m\e[92m'
+figlet Empirex
+echo -e '\e[0m'
+sleep 1
+
 RED='\033[0;31m'
 RESET='\033[0m'
 
